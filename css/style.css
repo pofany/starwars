@@ -1575,3 +1575,64 @@ footer {
         text-shadow: 0 0 10px #ff0000, 0 0 20px #ff4500;
     }
 }
+
+button {
+    background: linear-gradient(45deg, #ff004c, #ff9a00);
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+button:focus {
+    outline: none;
+}
+
+button span {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* Default animation for larger screens (desktop/tablet) */
+@media (min-width: 768px) {
+    .your-animation-class {
+        animation: animationName 2s ease-in-out infinite;
+    }
+}
+
+/* Animation for small screens (mobile) */
+@media (max-width: 767px) {
+    .your-animation-class {
+        animation: differentAnimationName 1.5s ease-in-out infinite;
+    }
+}
+
+/* No animation for very small screens (optional) */
+@media (max-width: 400px) {
+    .your-animation-class {
+        animation: none;
+    }
+}
+
+/* For smaller screens */
+@media (max-width: 767px) {
+    .person {
+        max-width: 100%;
+        max-height: 80vh;  /* Ensure characters fit within viewport */
+        transform: scale(0.8);  /* Scale down if needed */
+    }
+}
