@@ -90,6 +90,7 @@
 
     <div class="dark-side">
         <p>Переходь на тьомну сторону</p>
+        <button onclick="unmuteAudio()">Play Star Wars Theme</button>
     </div>
 
     <section class="stripe" id="dark">
@@ -175,5 +176,20 @@
     </div>
 </footer>
 
+<audio id="star-wars-theme" loop muted>
+    <source src="star-wars-imperial-march.mp3" type="audio/mp3">
+    <source src="star-wars-imperial-march.ogg" type="audio/ogg">
+    Ваш браузер не підтримує відтворення звуку.
+</audio>
+
+<script>
+    function unmuteAudio() {
+        var audio = document.getElementById('star-wars-theme');
+        audio.muted = false;
+        audio.play().catch(function(error) {
+            console.log('Error playing audio:', error);
+        });
+    }
+</script>
 </body>
 </html>
