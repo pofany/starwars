@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Про автора</title>
-    <link rel="icon" type="image/png" href="img/dark.png" >
+    <link rel="icon" type="image/png" href="img/dark.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -93,6 +93,43 @@
                 box-shadow: 0 0 30px #ffd700, 0 0 60px #ffd700;
             }
         }
+
+        /* Quiz styling */
+        .quiz-container {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        .quiz-container input {
+            margin: 10px 0;
+            padding: 5px;
+            font-size: 1.1rem;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ffd700;
+            background: #1b1b1b;
+            color: #fff;
+        }
+        .quiz-container button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #ffd700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .quiz-container button:hover {
+            background-color: #ffcc00;
+        }
+        .quiz-container #result {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            color: #ffd700;
+        }
     </style>
 </head>
 <body>
@@ -102,24 +139,30 @@
 <div class="content">
     <img src="img/me.jpg" alt="Фото автора">
     <h2>Ус Анна Владсилавівна</h2>
-    <p>
-        Вітаю, мандрівнику галактики! Мене звати Анна, і я є пристрасним шанувальником
-        всесвіту *Зоряних Війн*. Мій шлях програмування розпочався, коли я зрозуміла, що кодування —
-        це справжня Сила. Як джедай серед кодерів, я створюю тематичні вебсайти, які об'єднують фанатів
-        цієї дивовижної саги.
-    </p>
-    <p>
-        Зв’язатися зі мною можна через <a href="mailto:anna.us.pp.2023@gmail.com">anna.us.pp.2023@gmail.com</a>.
-    </p>
+    <p>Вітаю, мандрівнику галактики! Мене звати Анна, і я є пристрасним шанувальником всесвіту *Зоряних Війн*. Мій шлях програмування розпочався, коли я зрозуміла, що кодування — це справжня Сила. Як джедай серед кодерів, я створюю тематичні вебсайти, які об'єднують фанатів цієї дивовижної саги.</p>
+    <p>Зв’язатися зі мною можна через <a href="mailto:anna.us.pp.2023@gmail.com">anna.us.pp.2023@gmail.com</a>.</p>
     <div class="social-icons">
         <a href="https://www.instagram.com/__pofany__/" class="social"><i class="fab fa-instagram"></i></a>
         <a href="https://github.com/pofany" class="social"><i class="fab fa-github"></i></a>
     </div>
 </div>
+
+<!-- Quiz Section -->
+<div class="quiz-container">
+    <h3>Тест на знання Зоряних Війн</h3>
+    <p>Хто є батьком Люка Скайвокера?</p>
+    <input type="text" id="q1" placeholder="Ваша відповідь">
+    <p>Хто вбив Яббу Хатта?</p>
+    <input type="text" id="q2" placeholder="Ваша відповідь">
+    <button id="submit-quiz">Надіслати тест</button>
+    <div id="result"></div>
+</div>
+
 <footer>
     <p>Цей сайт створено з використанням Сили. <a href="index.html">Повернутися на головну</a>.</p>
 </footer>
 <div class="force-light" id="force-light"></div>
+
 <script>
     $(document).ready(function() {
         // Ефект для цитати у заголовку
@@ -133,6 +176,14 @@
             } else {
                 $(this).css('background', 'radial-gradient(circle, #ffffff, #ffd700)');
             }
+        });
+
+        // Оцінка результатів тесту
+        $("#submit-quiz").click(function() {
+            var score = 0;
+            if ($("#q1").val().toLowerCase() === "дарт вейдер") score++;
+            if ($("#q2").val().toLowerCase() === "лея органа") score++;
+            $("#result").text("Ваш результат: " + score + "/2");
         });
     });
 </script>
